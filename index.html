@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Webpage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <header class="d-flex justify-content-center bg-primary text-white header">Weather Dashboard</header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+
+            <section class="search-container container">
+                <div class="row">
+                    <h2 class="">Search for a City:</h2>
+                    <input type="text">
+
+                    <button class="btn btn-primary mt-3" id="searchBtn"> Search</button>
+
+                </div>
+
+            </section>
+
+
+            </div>
+        <div class="col-8">
+            <section class="container">
+                <div class="row border border-dark mt-3" id="current-info">
+                    <h1 id="">Atlanta (3/30/2021)</h1>
+                    <p>Temp: <span id="temp">73</span></p>
+                    <p>Wind: 6mph</p>
+                    <p>Humidity:46%</p>
+                    <p>UV Index: 0.47</p>
+
+
+                </div>
+
+            </section>
+        </div>
+
+            
+        </div>
+
+    
+    </div>
+
+   
+
+<script src="app.js"></script>
+    
+</body>
+</html>
