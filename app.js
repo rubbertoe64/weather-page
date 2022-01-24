@@ -1,51 +1,110 @@
 let APIKey = '9ee03f5c3db61861f36c5914aec1a590'
+let inputValue = document.getElementById('inputValue')
 const searchBtn = document.getElementById('searchBtn')
-let tempText = document.getElementById('temp')
 let cityHeader = document.getElementById('cityHeader')
+let tempEl = document.getElementById('temp')
+let windEl = document.getElementById('wind')
+let humidEl = document.getElementById('humid')
+let uvEl = document.getElementById('uv')
+let fiveDayEl = document.getElementById('five-day-blocks')
+let btn = document.createElement('button')
+let divSearch = document.getElementById('addBtn')
+
+let btnList = [];
+
+function init(){
+    btnList = localStorage.getItem("Cities") ? JSON.parse(localStorage.getItem("Cities")) : [];
+    for(let btn of btnList){
+        createButton(btn)
+    }
+}
+
 searchBtn.addEventListener('click', e => {
     e.preventDefault();
-    getWeatherData();
-    get5DayWeatherData();
+    let city = inputValue.value;
+    getWeatherData(city);
+    
+    
+
 })
 
+function createButton(btnName){
 
- function getWeatherData(){
-    let city = "San+Diego";
+    let btnEl = document.createElement("BUTTON");
+    let btnText = document.createTextNode(btnName);
+         btnEl.appendChild(btnText);
+         btnEl.addEventListener("click", e => {
+             e.preventDefault();
+             console.log(btnText);
+             getWeatherData(btnName)
+         })
+         divSearch.appendChild(btnEl);
+
+         btnEl.style.width = "100%";
+         btnEl.style.margin = "4px";
+}
+
+
+ function getWeatherData(city){
+    
     let queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&cnt=5" + "&appid=" + APIKey + "&units=imperial";
     let currentWeather;
     
 
     fetch(queryURL)
-        .then(function(resp){
+        .then((resp) => {
             return resp.json();
         })
-        .then(function(data){
+        .then((data) => {
             currentWeather = data
-            console.log(currentWeather)
+            console.log("current",currentWeather)
             cityHeader.innerText = currentWeather.name + ' (' + new Date().toLocaleDateString() + ')'
-            tempText.innerText = currentWeather.main.temp
+            tempEl.innerText = currentWeather.main.temp + ' °F'
+            windEl.innerText = currentWeather.wind.speed + " MPH"
+            humidEl.innerText = currentWeather.main.humidity + "%"
+            
+            getUV(data.coord.lat,data.coord.lon)
+            if(!btnList.includes(currentWeather.name)){
+                btnList.push(currentWeather.name)
+                localStorage.setItem("Cities", JSON.stringify(btnList))
+                createButton(currentWeather.name);
+
+            }
+
+
 
 
         })
+        
 
  }
 
- function get5DayWeatherData(){
-    
-     let city = "San+Diego"
-     let query5DayURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&cnt=5" + "&appid=" + APIKey
-     let current5DayWeather;
 
-     fetch(query5DayURL)
-        .then(function(resp){
-            return resp.json();
+ function getUV(lat, lon){
+    let queryUvURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey + "&exclude=minutely,hourly,alerts"
+    let currentUV;
+    fetch(queryUvURL)
+        .then((resp) => {
+            return resp.json()
         })
-        .then(function(data){
-            current5DayWeather = data;
-            console.log(current5DayWeather)
-            
+        .then((data) => {
+            currentUV = data.daily[0].uvi
+            uvEl.innerText = currentUV
+            console.log("uv", data);
 
+            for(let i = 1; i < data.daily.length; i++){
+                const currentDaily = data.daily[i]
+                if(i < 6){
+                    fiveDayEl.children[i - 1].children[0].children[0].innerText = new Date(currentDaily.dt * 1000).toLocaleDateString()
+
+                }
+                
+                console.log('daily time', new Date(currentDaily.dt * 1000).toLocaleDateString());
+            }
         })
+     
  }
 
  
+
+ init();

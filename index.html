@@ -12,16 +12,16 @@
 <body>
     <header class="d-flex justify-content-center bg-primary text-white header">Weather Dashboard</header>
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-4">
 
-            <section class="search-container container">
-                <div class="row">
+            <section class="container">
+                <div class="row" id="search-container">
                     <h2 class="">Search for a City:</h2>
-                    <input type="text">
-
+                    <input type="text" id="inputValue" placeholder="ex. San Diego">
                     <button class="btn btn-primary mt-3" id="searchBtn"> Search</button>
+                    <div id="addBtn"></div>
 
                 </div>
 
@@ -33,16 +33,110 @@
             <section class="container">
                 <div class="row border border-dark mt-3" id="current-info">
                     <h1 id="cityHeader">Select a city</h1>
-                    <p>Temp: <span id="temp"></span></p>
-                    <p>Wind: <span id="wind"></span></p>
+                    <p>Temp: <span id="temp"></span> </p>
+                    <p>Wind: <span id="wind"></span> </p>
                     <p>Humidity: <span id="humid"></span></p>
                     <p>UV Index: <span id="uv"></span></p>
 
 
                 </div>
 
-                <div class="row" id="">
+                <div class="" id="">
                     <h1>5-Day Forecast:</h1>
+
+                    <div class="row row-cols-6 grid" id="five-day-blocks">
+                        <ul class=" bg-secondary">
+                            <li>
+                                 <h3 id="1st-Date">date</h3> 
+                            </li>
+                            <li>
+                                <h3>emoji</h3>
+                            </li>
+                            <li>
+                                <p>Temp:</p>
+                            </li>
+                            <li>
+                                <p>Wind:</p>
+                            </li>
+                            <li>
+                                <p>Humidity:</p>
+                            </li>
+                        </ul>
+
+                        <ul class="col bg-secondary">
+                            <li>
+                                 <h3 id="1st-Date">date</h3> 
+                            </li>
+                            <li>
+                                <h3>emoji</h3>
+                            </li>
+                            <li>
+                                <p>Temp:</p>
+                            </li>
+                            <li>
+                                <p>Wind:</p>
+                            </li>
+                            <li>
+                                <p>Humidity:</p>
+                            </li>
+                        </ul>
+
+                        <ul class="col bg-secondary">
+                            <li>
+                                 <h3 id="1st-Date">date</h3> 
+                            </li>
+                            <li>
+                                <h3>emoji</h3>
+                            </li>
+                            <li>
+                                <p>Temp:</p>
+                            </li>
+                            <li>
+                                <p>Wind:</p>
+                            </li>
+                            <li>
+                                <p>Humidity:</p>
+                            </li>
+                        </ul>
+
+                        <ul class="col bg-secondary">
+                            <li>
+                                 <h3 id="1st-Date">date</h3> 
+                            </li>
+                            <li>
+                                <h3>emoji</h3>
+                            </li>
+                            <li>
+                                <p>Temp:</p>
+                            </li>
+                            <li>
+                                <p>Wind:</p>
+                            </li>
+                            <li>
+                                <p>Humidity:</p>
+                            </li>
+                        </ul>
+
+                        <ul class="col bg-secondary">
+                            <li>
+                                 <h3 id="1st-Date">date</h3> 
+                            </li>
+                            <li>
+                                <h3>emoji</h3>
+                            </li>
+                            <li>
+                                <p>Temp:</p>
+                            </li>
+                            <li>
+                                <p>Wind:</p>
+                            </li>
+                            <li>
+                                <p>Humidity:</p>
+                            </li>
+                        </ul>
+
+
+                    </div>
 
                 </div>
 

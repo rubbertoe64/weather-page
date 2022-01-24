@@ -1,4 +1,21 @@
 .header{
     font-size: 40px;
     padding: 20px;
+    width: 100vw
+}
+
+ul{
+    list-style: none;
+    width: 100%;
+}
+
+.bg-secondary{
+    margin: 0 13px;
+    width: 100%;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 10px;
 }
