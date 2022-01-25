@@ -1,7 +1,29 @@
 .header{
     font-size: 40px;
     padding: 20px;
-    width: 100vw
+    width: 100vw;
+    background: rgb(82,75,199);
+    background: linear-gradient(90deg, rgba(82,75,199,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+
+}
+
+#cityHeader {
+    margin-top: 6px;
+}
+
+#current-info{
+    background-color: rgb(172, 170, 170);
+}
+
+#mainEmoji{
+    width: 70px;
+    margin-bottom: 40px;
+    
+}
+
+#searchBtn{
+    background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 9%, rgba(12,24,97,1) 100%);
 }
 
 ul{
@@ -16,8 +38,9 @@ ul{
 
 .grid{
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat( auto-fit , minmax(150px, 1fr) );
     grid-column-gap: 10px;
+    grid-row-gap: 10px;
 }
 
 #five-day-blocks{
