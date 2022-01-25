@@ -1,7 +1,8 @@
 This is my weather page! Look up your city's weather by typing your city's name an clicking the search button! It also stores the cities into local storage.
 
-Github Page Link:
+Github Page Link:https://rubbertoe64.github.io/weather-page/
 
+![weather page](https://user-images.githubusercontent.com/71856810/150919819-4ab6f630-d294-40ae-b187-41e197fcac78.PNG)
 
 
 ## Acceptance Criteria
