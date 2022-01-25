@@ -79,9 +79,9 @@ function createButton(btnName){
 
  }
 
-
+// grabs 5 day info as well as current days UV index
  function getUV(lat, lon){
-    let queryUvURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey + "&exclude=minutely,hourly,alerts"
+    let queryUvURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey + "&exclude=minutely,hourly,alerts&units=imperial"
     let currentUV;
     fetch(queryUvURL)
         .then((resp) => {
@@ -95,7 +95,22 @@ function createButton(btnName){
             for(let i = 1; i < data.daily.length; i++){
                 const currentDaily = data.daily[i]
                 if(i < 6){
-                    fiveDayEl.children[i - 1].children[0].children[0].innerText = new Date(currentDaily.dt * 1000).toLocaleDateString()
+                    let currentChild = fiveDayEl.children[i - 1]
+
+                    // setting Date
+                    currentChild.children[0].children[0].innerText = new Date(currentDaily.dt * 1000).toLocaleDateString()
+
+                    // setting emoji
+                    currentChild.children[1].innerHTML = '<div class="d-flex align-items-center"> <img class="emoji" src="http://openweathermap.org/img/wn/' + currentDaily.weather[0].icon + '@2x.png">' + '<h3>' + currentDaily.weather[0].main + '</h3> </div>' 
+
+                    // setting temperature
+                    currentChild.children[2].children[0].innerText = currentDaily.temp.day + " °F"
+
+                    // setting Wind
+                    currentChild.children[3].children[0].innerText = currentDaily['wind_speed'] + " MPH"
+
+                    // setting Humidity
+                    currentChild.children[4].children[0].innerText = currentDaily.humidity + "%"
 
                 }
                 
@@ -106,5 +121,6 @@ function createButton(btnName){
  }
 
  
+
 
  init();

@@ -19,3 +19,11 @@ ul{
     grid-template-columns: repeat(5, 1fr);
     grid-column-gap: 10px;
 }
+
+#five-day-blocks{
+    color: white;
+}
+
+.emoji{
+    width: 50px;
+}
