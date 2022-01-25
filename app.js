@@ -55,7 +55,7 @@ function createButton(btnName){
 // funtion that grabs current weather
  function getWeatherData(city, createBtn){
     
-    let queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&cnt=5" + "&appid=" + APIKey + "&units=imperial";
+    let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&cnt=5" + "&appid=" + APIKey + "&units=imperial";
     let currentWeather;
     
 
@@ -67,7 +67,7 @@ function createButton(btnName){
             currentWeather = data
             console.log("current",currentWeather)
             cityHeader.innerText = currentWeather.name + ' (' + new Date().toLocaleDateString() + ')'
-            mainEmojiEl.src = 'http://openweathermap.org/img/wn/' + currentWeather.weather[0].icon + '@2x.png'
+            mainEmojiEl.src = 'https://openweathermap.org/img/wn/' + currentWeather.weather[0].icon + '@2x.png'
             tempEl.innerText = currentWeather.main.temp + ' °F'
             windEl.innerText = currentWeather.wind.speed + " MPH"
             humidEl.innerText = currentWeather.main.humidity + "%"
