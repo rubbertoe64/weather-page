@@ -10,26 +10,27 @@
 
 </head>
 <body>
+    <!-- Header -->
     <header class="d-flex justify-content-center bg-primary text-white header">Weather Dashboard</header>
-
+<!-- Contains the input and Search Button -->
     <div class="container-fluid">
         <div class="row">
             <div class="col-4">
+                
+                <section class="container">
+                    <div class="row" id="search-container">
+                        <h2 class="">Search for a City:</h2>
+                        <input type="text" id="inputValue" placeholder="ex. San Diego">
+                        <button class="btn btn-primary mt-3" id="searchBtn"> Search</button>
+                        <div id="addBtn"></div>
+                    </div>
 
-            <section class="container">
-                <div class="row" id="search-container">
-                    <h2 class="">Search for a City:</h2>
-                    <input type="text" id="inputValue" placeholder="ex. San Diego">
-                    <button class="btn btn-primary mt-3" id="searchBtn"> Search</button>
-                    <div id="addBtn"></div>
-
-                </div>
-
-            </section>
+                </section>
 
 
             </div>
-        <div class="col-8">
+            <!-- Displays Current Weather of City and current Date -->
+         <div class="col-8">
             <section class="container">
                 <div class="row border border-dark mt-3" id="current-info">
                     <div class="d-flex">
@@ -43,7 +44,7 @@
 
 
                 </div>
-
+                <!-- Displays the 5 Day Blocks -->
                 <div class="" id="">
                     <h1>5-Day Forecast:</h1>
 
